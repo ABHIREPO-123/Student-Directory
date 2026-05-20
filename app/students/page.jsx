@@ -202,7 +202,7 @@ export default function StudentDirectory() {
                       <span
                         className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                           student.status === "Active"
-                            ? "bg-green-50 text-green-700"
+                            ? "bg-green-200 text-green-700"
                             : "bg-slate-100 text-slate-500"
                         }`}
                       >
