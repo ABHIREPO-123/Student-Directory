@@ -28,10 +28,8 @@ export async function GET(request) {
 
     return NextResponse.json({ students, total }, { status: 200 });
   } catch (error) {
-    return NextResponse.json(
-      { error: "Failed to fetch students" },
-      { status: 500 },
-    );
+    console.log(error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
 
@@ -53,15 +51,13 @@ export async function POST(request) {
 
     return NextResponse.json(newStudent, { status: 201 });
   } catch (error) {
+    console.log(error);
     if (error.code === "P2002") {
       return NextResponse.json(
         { error: "Email already exists" },
         { status: 400 },
       );
     }
-    return NextResponse.json(
-      { error: "Failed to create student" },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
